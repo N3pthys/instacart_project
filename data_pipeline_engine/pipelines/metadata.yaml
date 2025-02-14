@@ -1,0 +1,8 @@
+project_uuid: 438db32b3db54cd98bb11501d3814e41
+
+pipelines:
+  - name: mysql_to_snowflake_pipeline
+    uuid: 438db32b3db54cd98bb11501d3814e41
+    steps:
+      - extract_data
+      - load_data_to_snowflake

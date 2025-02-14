@@ -1,0 +1,5 @@
+MYSQL_HOST: localhost
+MYSQL_USER: instacart_user
+MYSQL_PASSWORD: hola2025
+MYSQL_DATABASE: instacart_db
+MYSQL_PORT: 3306
