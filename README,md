@@ -1,0 +1,34 @@
+For this project, I set up a development environment to manage all dependencies and work with different tools. I used a virtual environment to isolate the project and ensure compatibility with the required libraries.
+
+I began by creating the environment using Python 3.x, which was necessary for all dependencies. Then, I installed MySQL locally to handle the database and connected it to Python using libraries like pymysql. I also set up the Snowflake client library and MageAI for orchestrating the data pipeline.
+
+Once everything was set up, I organized the project folder structure into different directories like data/ for CSV files, scripts/ for Python scripts, notebooks/ for exploratory analysis, and data_pipeline_engine/ for MageAI configurations.
+
+This approach helped me keep everything structured, allowing for efficient management of data and dependencies throughout the project.
+
+
+
+Creating the Virtual Environment: I created a virtual environment to isolate the dependencies from my system’s global Python installation. I ran:
+
+python3 -m instacart_env
+source instacart_env/bin/activate  # To activate the environment
+
+Installing Required Libraries: After activating the environment, I installed all the necessary libraries using the requirements.txt file, which includes libraries like pandas, numpy, seaborn, and others for data analysis and visualization.
+pip install -r requirements.txt
+
+Database Setup and Data Ingestion: To ingest the data into MySQL, I used the script load_data.py to load data from CSV files into the MySQL database. Here's the command:
+python \\wsl.localhost\Ubuntu\root\instacart_project\scripts\load_data.py
+
+Data Transformation and Moving to Snowflake: After loading the data into MySQL, I used the script mysql_to_snowflake.py to transfer the data into Snowflake:
+python \\wsl.localhost\Ubuntu\root\instacart_project\scripts\mysql_to_snowflake.py
+
+Database Creation in Snowflake: I created the Snowflake database and schemas using the script create_snowflake_db.py:
+python \\wsl.localhost\Ubuntu\root\instacart_project\scripts\create_snowflake_db.py
+
+Data Transformation: Once the data was transferred to Snowflake, I ran the script transform_data.py to clean and transform it according to the required structure:
+python \\wsl.localhost\Ubuntu\root\instacart_project\scripts\transform_data.py
+
+Final Data Ingestion into Clean Schema: To load the cleaned data into the final schema, I executed:
+python \\wsl.localhost\Ubuntu\root\instacart_project\scripts\ingest_data.py
+
+By using these scripts, I was able to efficiently manage the project, keeping everything well-organized while ensuring that all the components worked together seamlessly in the virtual environment.
